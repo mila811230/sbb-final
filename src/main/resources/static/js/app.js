@@ -9,7 +9,7 @@ async function searchProducts() {
         const productDiv = document.createElement("div");
         productDiv.innerHTML = `
             <h3>${product.title}</h3>
-            <img src="${product.image}" alt="${product.title}">
+            <img src="${product.image}" alt="${product.title}" style="width: 400px; height: 400px;">
             <button onclick="addToFavorites('${product.productId}', '${product.title}', '${product.link}', '${product.image}')">즐겨찾기 추가</button>
         `;
         resultsDiv.appendChild(productDiv);
