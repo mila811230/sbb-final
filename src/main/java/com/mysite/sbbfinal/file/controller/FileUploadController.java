@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.mysite.sbbfinal.exception.FileNotFoundException;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
@@ -79,7 +81,7 @@ public class FileUploadController {
 
     // 파일 다운로드
     @GetMapping("/download/{filename}")
-    public ResponseEntity<Resource> downloadFile(@PathVariable String filename) {
+    public ResponseEntity<Resource> downloadFile(@PathVariable("filename") String filename) {
         try {
             Path filePath = Paths.get(uploadDirectory).resolve(filename);
             Resource resource = new UrlResource(filePath.toUri());
