@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mysite.sbbfinal.board.mapper.BoardMapper">
+	<select id="getBoardList" resultType="com.mysite.sbbfinal.board.dto.Board">
+		SELECT id, word FROM page_tb ORDER BY word DESC LIMIT #{size} OFFSET #{offset}
+	</select>
+	<select id="getBoardById" resultType="com.mysite.sbbfinal.board.dto.Board">
+		SELECT id, word FROM page_tb WHERE id = #{id}
+	</select>
+	
+	<select id="countTotal" resultType="Integer">
+		SELECT count(*) FROM page_tb
+	</select>
+</mapper>
